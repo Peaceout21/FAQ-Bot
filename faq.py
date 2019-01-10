@@ -10,6 +10,9 @@ stop = stopwords.words('english')
 import tensorflow as tf
 import tensorflow_hub as hub
 
+'''
+All the query input will be converted to present tense using the lemmatiser
+'''
 
 def cleanQ(x):
     x=re.sub('[^a-zA-Z]+', ' ', x)
@@ -31,6 +34,9 @@ read_op()
 
 df=read_csv('new_ques.csv')
 
+'''
+Define the computation graph
+'''
 g = tf.Graph()
 with g.as_default():
     tf.logging.set_verbosity(tf.logging.ERROR)
